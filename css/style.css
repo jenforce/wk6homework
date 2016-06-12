@@ -6,7 +6,14 @@ body{
 }
 
 .wrapper{
-/*background-color: black;*/
+*background-color: black;*/
 }
 
-
+.bthin{
+height:60px;
+width: 60px;
+}
+.bthing1{
+height:60px;
+width: 60px;
+}
