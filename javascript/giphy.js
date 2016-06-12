@@ -1,11 +1,11 @@
  $(document).ready(function() {
-var gifThings=[];
-var arrayThings = ['bob','cat','waterfall'];
-var thing;
+	var gifThings=[];
+	var arrayThings = ['bob','cat','waterfall'];
+	var thing;
+	renderButtons();
 
  $(".bthing").on('click', function() {
  	thing = this.id
- 	
 	 	if(thing === "thingSubmit"){
 	 		thing = $('#thing-input').val();	
 	 		gifCall(thing);
@@ -17,7 +17,6 @@ var thing;
  });
  	
 function gifCall(thing){
-
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + thing + "&api_key=dc6zaTOxFJmzC&limit=10";
 
         $.ajax({url: queryURL, method: 'GET'})         
@@ -33,28 +32,27 @@ function gifCall(thing){
                              var thingImage = $('<img>');
                              var gifId = results[i].id;
                                  gifThings.push(gifId);
-                                console.log(gifId); 
-                                thingImage.attr('src', results[i].images.original_still.url);               
-                            gifDiv.append(p)
-                            gifDiv.append(thingImage) 
-                            $('#thingsGoHere').prepend(gifDiv);    
+                                 console.log(gifId); 
+                                 thingImage.attr('src', results[i].images.original_still.url);               
+                           		 gifDiv.append(p)
+                            	 gifDiv.append(thingImage) 
+                            $('#thingsGoHere').prepend(gifDiv);  
                           }
                         }
             }); // end .done(function(response)
 }// end function gifCall(thing)
 
-
-    function renderButtons(){ 
-        $('#buttonCollection').empty();
-        for (var i = 0; i < arrayThings.length; i++){
-            var a = $('<button>') 
-            a.addClass("bthing");
-			a.attr('id',arrayThings[i]);
-            a.attr('data-name', arrayThings[i]); 
-            a.text(arrayThings[i]); 
-            $('#buttonCollection').append(a); 
-        }
+function renderButtons(){ 
+    $('#buttonCollection').empty();
+    for (var i = 0; i < arrayThings.length; i++){
+        var a = $('<button>') 
+        a.addClass("bthing");
+		a.attr('id',arrayThings[i]);
+        a.attr('data-name', arrayThings[i]); 
+        a.text(arrayThings[i]); 
+        $('#buttonCollection').append(a); 
     }
+}
 
 });   //end $(document).ready(function()
 
