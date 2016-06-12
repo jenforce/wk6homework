@@ -1,16 +1,20 @@
- $(document).ready(function() {
+$(document).ready(function() {
 	var gifThings=[];
 	var arrayThings = ['bob','cat','waterfall'];
 	var thing;
 	renderButtons();
 
- $(".bthing").on('click', function() {
+ $('.bthing').on('click', function() {
  	thing = this.id
-	 	if(thing === "thingSubmit"){
-	 		thing = $('#thing-input').val();	
+    console.log(this);
+	 	if(thing === 'thingSubmit'){
+	 		thing = $('#thing-input').val();
+             arrayThings.push(thing);
+            	   console.log(this);
 	 		gifCall(thing);
          	renderButtons();
 	 	}else{
+
          	gifCall(thing);
 	 		console.log(thing);
 	 	}
@@ -31,7 +35,7 @@ function gifCall(thing){
                              var p = $('<p>').text( "Rating: " + rating);
                              var thingImage = $('<img>');
                              var gifId = results[i].id;
-                                 gifThings.push(gifId);
+                               gifThings.push(gifId);
                                  console.log(gifId); 
                                  thingImage.attr('src', results[i].images.original_still.url);               
                            		 gifDiv.append(p)
@@ -46,7 +50,7 @@ function renderButtons(){
     $('#buttonCollection').empty();
     for (var i = 0; i < arrayThings.length; i++){
         var a = $('<button>') 
-        a.addClass("bthing");
+        a.addClass('bthing');
 		a.attr('id',arrayThings[i]);
         a.attr('data-name', arrayThings[i]); 
         a.text(arrayThings[i]); 
@@ -57,8 +61,5 @@ function renderButtons(){
 });   //end $(document).ready(function()
 
 /*
-
  //personImage.attr('src', results[i].images.fixed_height.url);
-
 */
-
