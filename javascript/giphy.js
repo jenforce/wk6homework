@@ -2,6 +2,7 @@ $(document).ready(function() {
 	var gifThings=[];
 	var arrayThings = ['bob','cat','waterfall'];
 	var thing;
+      var state = $(this).attr('data-state'); 
 	renderButtons();
 
  $('.bthing').on('click', function() {
@@ -30,16 +31,18 @@ function gifCall(thing){
                            if (results[i].rating == "r" || results[i].rating == "pg-13"){
                           }
                         else {
-                             var gifDiv = $('<div class="bthing">');
+                             var gifDiv = $('<div class = "gifpic">');
                              var rating = results[i].rating;
                              var p = $('<p>').text( "Rating: " + rating);
                              var thingImage = $('<img>');
                              var gifId = results[i].id;
                                gifThings.push(gifId);
-                                 console.log(gifId); 
-                                 thingImage.attr('src', results[i].images.original_still.url);               
-                           		 gifDiv.append(p)
-                            	 gifDiv.append(thingImage) 
+                                 console.log(gifId);
+                                 gifDiv.attr('id', 'test');
+                                 thingImage.attr('src', results[i].images.original_still.url); 
+                                //thingImage.attr('data-state', 'still');
+                           		 gifDiv.append(p);
+                            	 gifDiv.append(thingImage); 
                             $('#thingsGoHere').prepend(gifDiv);  
                           }
                         }
@@ -56,9 +59,26 @@ function renderButtons(){
         a.text(arrayThings[i]); 
         $('#buttonCollection').append(a); 
     }
-}
+};
 
 });   //end $(document).ready(function()
+
+/*
+  $('.gifpic').on('click', function(){
+    var state = $(this).attr('data-state'); 
+    console.log('click;')
+     if ( state == 'still'){
+                $(this).attr('src', $(this).data('animate'));
+                $(this).attr('data-state', 'animate');
+            }else{
+                $(this).attr('src', $(this).data('still'));
+                $(this).attr('data-state', 'still');
+            }
+        });
+
+*/
+
+
 
 /*
  //personImage.attr('src', results[i].images.fixed_height.url);

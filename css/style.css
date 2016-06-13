@@ -1,19 +1,43 @@
 
 
-/*  page structure classes*/
-body{
-	
-}
-
 .wrapper{
-*background-color: black;*/
+	/*background-image: url("../images/cubes.png");*/
+
+
 }
 
-.bthin{
-height:60px;
-width: 60px;
+.thingform{
+	height:80px;
+	background-color: black;
+	margin-top: 40px;
+	padding: 25px;
+	color: white;
 }
-.bthing1{
-height:60px;
-width: 60px;
+
+#thing-input{
+	color: black;
+}
+
+
+.bthing{
+	background-image: url("../images/a4.jpg");
+	color: black;	
+	margin:5px;
+}
+.buttonCollection{
+	margin-top: 40px;
+}
+
+.dThing{
+	margin-top: 40px;
+}
+img{
+	margin: 15px;
+	height: 200PX;
+	width: 200px;
+}
+.gifpic{
+	  display: inline-block;
+}
+#thingsGoHere{	
 }
